@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Tonalidad de Color</title>
+    <!-- Agrega la referencia a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #miDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 0, 0);
+            margin-top: 20px; /* Espaciado superior */
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">EL ROMERO HTML</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center mt-5">Cambiar Tonalidad de Color</h1>
+                <div id="miDiv" class="mx-auto"></div>
+                <div class="mt-3">
+                    <label for="redRange">Rojo:</label>
+                    <input type="range" id="redRange" class="custom-range" min="0" max="255" step="1" value="255">
+                </div>
+                <div class="mt-3">
+                    <label for="greenRange">Verde:</label>
+                    <input type="range" id="greenRange" class="custom-range" min="0" max="255" step="1" value="0">
+                </div>
+                <div class="mt-3 mb-5">
+                    <label for="blueRange">Azul:</label>
+                    <input type="range" id="blueRange" class="custom-range" min="0" max="255" step="1" value="0">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Mi Página Web. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Agrega la referencia a Bootstrap JS y jQuery (necesarios para ciertas características de Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const redRange = document.getElementById('redRange');
+        const greenRange = document.getElementById('greenRange');
+        const blueRange = document.getElementById('blueRange');
+        const miDiv = document.getElementById('miDiv');
+
+        function actualizarColor() {
+            const red = redRange.value;
+            const green = greenRange.value;
+            const blue = blueRange.value;
+            miDiv.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        redRange.addEventListener('input', actualizarColor);
+        greenRange.addEventListener('input', actualizarColor);
+        blueRange.addEventListener('input', actualizarColor);
+
+        // Llamamos a la función inicialmente para que el div refleje los valores iniciales de los controles.
+        actualizarColor();
+    </script>
+</body>
+</html>
